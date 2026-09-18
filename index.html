@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gbolahan Folarin - Full-Stack Product Engineer</title>
+<meta name="description" content="Gbolahan Folarin builds full-stack products with AI-accelerated development: secure payments, developer tooling, agent infrastructure, and agri-tech.">
+<meta name="author" content="Gbolahan Folarin">
+<meta property="og:title" content="Gbolahan Folarin - Full-Stack Product Engineer">
+<meta property="og:description" content="Full-stack product engineer building secure, production-grade systems with AI-accelerated development.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mogborlahan.netlify.app">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 36 36%22><rect width=%2236%22 height=%2236%22 rx=%229%22 fill=%22%232DD4BF%22/><text x=%2218%22 y=%2225%22 text-anchor=%22middle%22 fill=%22%230B0E12%22 font-family=%22system-ui%22 font-weight=%22800%22 font-size=%2220%22>G</text></svg>">
+<style>
+  /* Design read: personal engineering portfolio, recruiter-first,
+     premium dark language. Dials: VARIANCE 6 / MOTION 3 / DENSITY 4.
+     Accent lock: teal (#2DD4BF). Radius: 12px containers, pill buttons. */
+  :root {
+    --bg: #0B0E12;
+    --bg-deep: #070A0E;
+    --panel: #12161C;
+    --panel-2: #171C24;
+    --border: #232A34;
+    --border-strong: #2F3846;
+    --accent: #2DD4BF;
+    --accent-soft: #5EEAD4;
+    --text: #E7E9EC;
+    --muted: #96A0AD;
+    --gold: #D4A017;
+    --indigo: #635BFF;
+    --sky: #38BDF8;
+    --green: #22C55E;
+    --radius: 12px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+    background-size: 52px 52px;
+    background-attachment: fixed;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(11, 14, 18, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1120px; margin: 0 auto; padding: 0 1.5rem;
+    height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .brand { display: inline-flex; align-items: center; gap: 0.6rem; font-weight: 700; text-decoration: none; color: var(--text); }
+  .brand-mark {
+    display: grid; place-items: center; width: 30px; height: 30px;
+    border-radius: 9px; background: var(--accent); color: #06251F;
+    font-size: 0.85rem; font-weight: 800;
+  }
+  .brand-name { letter-spacing: -0.01em; font-size: 0.98rem; }
+  .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.94rem; }
+  .nav-links a:hover { color: var(--text); }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    border-radius: 999px; font-weight: 600; font-size: 0.94rem; text-decoration: none;
+    padding: 0.65rem 1.35rem; border: 1px solid transparent; cursor: pointer;
+    transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--accent); color: #06251F; }
+  .btn-primary:hover { background: var(--accent-soft); }
+  .btn-secondary { background: transparent; border-color: var(--border-strong); color: var(--text); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Hero */
+  .hero {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+    gap: clamp(2rem, 6vw, 4.5rem); align-items: center;
+    padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(3rem, 7vw, 5rem);
+  }
+  .hero-kicker {
+    color: var(--accent); font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.1rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5.4vw, 3.7rem); line-height: 1.04;
+    letter-spacing: -0.03em; margin-bottom: 1.25rem; max-width: 16ch;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero-sub { color: var(--muted); font-size: 1.12rem; max-width: 48ch; margin-bottom: 2rem; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+
+  .hero-panel {
+    border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(45,212,191,0.12), transparent 55%),
+      linear-gradient(165deg, var(--panel-2), var(--panel));
+  }
+  .hero-panel h2 { font-size: 0.95rem; margin-bottom: 1.1rem; color: var(--text); }
+  .stat { display: flex; align-items: baseline; gap: 1rem; padding: 0.95rem 0; }
+  .stat + .stat { border-top: 1px solid var(--border); }
+  .stat-value {
+    color: var(--accent); font-size: 1.85rem; font-weight: 700;
+    letter-spacing: -0.02em; font-variant-numeric: tabular-nums; min-width: 4ch;
+  }
+  .stat-label { color: var(--muted); font-size: 0.9rem; }
+
+  /* Sections */
+  .section { padding: clamp(3rem, 7vw, 5rem) 0; }
+  .section-head { margin-bottom: 2.5rem; }
+  .section-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.25rem); letter-spacing: -0.025em; margin-bottom: 0.7rem; }
+  .section-head p { color: var(--muted); max-width: 60ch; }
+
+  /* Project cards */
+  .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .project {
+    --c: var(--accent);
+    position: relative; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.75rem; background: var(--panel); display: flex; flex-direction: column;
+    transition: border-color 0.2s ease, transform 0.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .project:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+  .project::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: var(--c); border-radius: var(--radius) var(--radius) 0 0; opacity: 0.9;
+  }
+  .project-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.9rem; }
+  .project-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .status {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    border: 1px solid var(--border-strong); border-radius: 999px; padding: 0.22rem 0.65rem;
+    color: var(--muted); white-space: nowrap;
+  }
+  .project-tag { color: var(--c); font-size: 0.86rem; font-weight: 600; margin-bottom: 0.85rem; }
+  .project-desc { color: var(--muted); font-size: 0.94rem; margin-bottom: 1.15rem; }
+  .project ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.35rem; }
+  .project ul li { position: relative; padding-left: 1.3rem; font-size: 0.9rem; color: #C4CBD3; }
+  .project ul li::before {
+    content: ""; position: absolute; left: 0; top: 0.55em;
+    width: 6px; height: 6px; border-radius: 2px; background: var(--c);
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
+  .chip {
+    font-size: 0.74rem; color: var(--muted); border: 1px solid var(--border);
+    border-radius: 999px; padding: 0.18rem 0.6rem; font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+  }
+  .project-link {
+    margin-top: auto; display: inline-flex; align-items: center; gap: 0.4rem;
+    color: var(--c); text-decoration: none; font-weight: 600; font-size: 0.92rem;
+  }
+  .project-link:hover { text-decoration: underline; }
+
+  /* Approach */
+  .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .approach-item { border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; background: var(--panel); }
+  .approach-item h3 { font-size: 1.02rem; margin-bottom: 0.6rem; }
+  .approach-item p { color: var(--muted); font-size: 0.92rem; }
+  .approach-item .num { color: var(--accent); font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 0.85rem; display: block; margin-bottom: 0.7rem; }
+
+  /* Stack */
+  .stack { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .stack span {
+    border: 1px solid var(--border); background: var(--panel); border-radius: 999px;
+    padding: 0.45rem 0.95rem; font-size: 0.88rem; color: #C4CBD3;
+  }
+
+  /* Contact */
+  .contact {
+    border: 1px solid rgba(45,212,191,0.32); border-radius: var(--radius);
+    background: radial-gradient(80% 130% at 50% 0%, rgba(45,212,191,0.10), transparent 62%), var(--panel);
+    padding: clamp(2.5rem, 6vw, 4rem) 2rem; text-align: center;
+  }
+  .contact h2 { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.025em; margin-bottom: 0.75rem; }
+  .contact p { color: var(--muted); max-width: 52ch; margin: 0 auto 1.85rem; }
+  .contact-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; }
+
+  footer {
+    border-top: 1px solid var(--border); padding: 2.25rem 1.5rem;
+    text-align: center; color: var(--muted); font-size: 0.85rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* Motion */
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .hero-copy, .hero-panel { animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-panel { animation-delay: 0.1s; }
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero-copy, .hero-panel { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .project:hover { transform: none; }
+  }
+  @media (max-width: 920px) {
+    .hero { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .work-grid { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Gbolahan Folarin, home">
+      <span class="brand-mark" aria-hidden="true">G</span>
+      <span class="brand-name">Gbolahan Folarin</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact" class="btn btn-primary">Get in touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <div class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="hero-kicker">Full-Stack Product Engineer</p>
+        <h1>I design and ship complete products, <span class="accent">AI-accelerated</span>.</h1>
+        <p class="hero-sub">
+          I take systems from a blank page to tested, documented, production-shaped software.
+          Payments, developer tooling, agent infrastructure, and agri-tech, built end to end with AI as my build partner.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#work">View my work</a>
+          <a class="btn btn-secondary" href="https://linkedin.com/in/mogbolahan" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="At a glance">
+        <h2>At a glance</h2>
+        <div class="stat"><span class="stat-value">4</span><span class="stat-label">full products designed and built end to end</span></div>
+        <div class="stat"><span class="stat-value">1k+</span><span class="stat-label">automated tests across the portfolio</span></div>
+        <div class="stat"><span class="stat-value">6</span><span class="stat-label">languages and runtimes in active use</span></div>
+      </aside>
+    </section>
+
+    <section class="section" id="work">
+      <div class="section-head reveal">
+        <h2>Featured work</h2>
+        <p>Four products, four problem spaces. Each one is fully specified, built, and documented. Status is stated honestly, including what is still ahead.</p>
+      </div>
+
+      <div class="work-grid">
+        <article class="project reveal" style="--c: var(--indigo)">
+          <div class="project-top">
+            <span class="project-name">PayGuard</span>
+            <span class="status">Pre-launch</span>
+          </div>
+          <p class="project-tag">Escrow protection for peer-to-peer commerce in Nigeria</p>
+          <p class="project-desc">Buyers and sellers who do not trust each other can transact safely. Funds are held until delivery is confirmed, with verified identity and fair dispute resolution built in.</p>
+          <ul>
+            <li>Escrow lifecycle modelled as an F# state machine, so invalid states cannot compile</li>
+            <li>1,000+ automated tests including an end-to-end buyer and seller journey in CI</li>
+            <li>Tamper-evident audit trail, PII encryption, and 13 documented security layers</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">.NET 10</span><span class="chip">F#</span><span class="chip">PostgreSQL</span>
+            <span class="chip">RabbitMQ</span><span class="chip">React Native</span>
+          </div>
+          <a class="project-link" href="https://payguard-escrow.netlify.app">Explore PayGuard</a>
+        </article>
+
+        <article class="project reveal" style="--c: var(--gold)">
+          <div class="project-top">
+            <span class="project-name">Aurum Forge</span>
+            <span class="status">MVP</span>
+          </div>
+          <p class="project-tag">An AI apprenticeship platform for engineers</p>
+          <p class="project-desc">Four AI agents work inside a real GitHub repository: reviewing pull requests, generating learning tracks, scoring mastery, and running weekly retrospectives.</p>
+          <ul>
+            <li>Pull request reviews with inline comments and a blocking check run in about 90 seconds</li>
+            <li>AI changes ship only when they pass golden-dataset evaluation gates in CI</li>
+            <li>Competency scores tied to verifiable evidence, never a score without proof</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">React</span>
+            <span class="chip">PostgreSQL</span><span class="chip">LLM</span>
+          </div>
+          <a class="project-link" href="https://aurum-forge.netlify.app">Explore Aurum Forge</a>
+        </article>
+
+        <article class="project reveal" style="--c: var(--sky)">
+          <div class="project-top">
+            <span class="project-name">Credlease</span>
+            <span class="status">Foundation complete</span>
+          </div>
+          <p class="project-tag">A capabilities broker for AI agents</p>
+          <p class="project-desc">Agents request capabilities, never passwords. Credlease issues short-lived, tightly scoped access without ever handing raw secrets to the agent that asks.</p>
+          <ul>
+            <li>Deny-by-default policy engine where a deny rule always overrides an allow</li>
+            <li>Production grants need a second approver, enforced at the database level</li>
+            <li>Envelope encryption through OpenBao, with a live audit stream</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">.NET 10</span><span class="chip">OpenBao</span><span class="chip">PostgreSQL</span>
+            <span class="chip">Blazor</span><span class="chip">Testcontainers</span>
+          </div>
+          <a class="project-link" href="https://credlease.netlify.app">Explore Credlease</a>
+        </article>
+
+        <article class="project reveal" style="--c: var(--green)">
+          <div class="project-top">
+            <span class="project-name">Farm Basics</span>
+            <span class="status">Blueprint</span>
+          </div>
+          <p class="project-tag">A product blueprint for Nigerian smallholder farmers</p>
+          <p class="project-desc">One digital identity that carries a smallholder farmer through land records, crop guidance, soil science, market access, and automatic bookkeeping.</p>
+          <ul>
+            <li>Thirteen business domains traced from business case through to engineering spec</li>
+            <li>Offline-first native Android designed for 1GB devices and patchy networks</li>
+            <li>Accessibility-led design system built for low-literacy users</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Product specs</span><span class="chip">Design system</span>
+            <span class="chip">Threat model</span><span class="chip">.NET / PostGIS</span>
+          </div>
+          <a class="project-link" href="https://farm-basics.netlify.app">Explore Farm Basics</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="section-head reveal">
+        <h2>How I build</h2>
+        <p>AI writes a lot of the code. Engineering judgement decides what ships. That distinction is the whole method.</p>
+      </div>
+      <div class="approach-grid">
+        <div class="approach-item reveal">
+          <span class="num">01 / Specify</span>
+          <h3>Specification before code</h3>
+          <p>Every product starts with a business case, product requirements, and an engineering design. Ambiguity gets resolved on paper, where changes are cheap.</p>
+        </div>
+        <div class="approach-item reveal">
+          <span class="num">02 / Build</span>
+          <h3>AI-accelerated execution</h3>
+          <p>AI agents carry the bulk of implementation under a tight loop: plan a chunk, generate, review, test, commit. Velocity stays high without losing traceability.</p>
+        </div>
+        <div class="approach-item reveal">
+          <span class="num">03 / Prove</span>
+          <h3>Evidence, not vibes</h3>
+          <p>Automated tests, evaluation gates, and honest status tracking. Claims in documentation map to running systems, not aspirations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stack">
+      <div class="section-head reveal">
+        <h2>Stack</h2>
+        <p>The tools I reach for most, across backend, frontend, data, and infrastructure.</p>
+      </div>
+      <div class="stack reveal">
+        <span>.NET / C#</span><span>F#</span><span>Python</span><span>FastAPI</span><span>React</span>
+        <span>TypeScript</span><span>React Native</span><span>Blazor</span><span>PostgreSQL</span>
+        <span>Redis</span><span>RabbitMQ</span><span>Docker</span><span>GitHub Actions</span>
+        <span>OpenTelemetry</span><span>LLM integration</span><span>OpenBao</span>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="contact reveal">
+        <h2>Let us build something</h2>
+        <p>I am open to engineering roles and collaborations where shipping complete, well-built products matters. The fastest way to reach me is LinkedIn or email.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://linkedin.com/in/mogbolahan" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <a class="btn btn-secondary" href="mailto:gbolahan.folarin@outlook.com">gbolahan.folarin@outlook.com</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <span>Gbolahan Folarin - Full-Stack Product Engineer, AI-Accelerated Development.</span>
+  <span>
+    <a href="https://linkedin.com/in/mogbolahan" target="_blank" rel="noopener">LinkedIn</a>
+    &nbsp;&middot;&nbsp;
+    <a href="mailto:gbolahan.folarin@outlook.com">Email</a>
+  </span>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
