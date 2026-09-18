@@ -139,6 +139,13 @@
     background: var(--c); border-radius: var(--radius) var(--radius) 0 0; opacity: 0.9;
   }
   .project-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.9rem; }
+  .project-id { display: inline-flex; align-items: center; gap: 0.75rem; min-width: 0; }
+  .project-logo {
+    flex: none; display: grid; place-items: center;
+    width: 44px; height: 44px; border-radius: 11px;
+    background: #EEF1F5; border: 1px solid rgba(255,255,255,0.10);
+  }
+  .project-logo img { width: 30px; height: 30px; object-fit: contain; display: block; }
   .project-name { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
   .status {
     font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
@@ -267,7 +274,10 @@
       <div class="work-grid">
         <article class="project reveal" style="--c: var(--indigo)">
           <div class="project-top">
-            <span class="project-name">PayGuard</span>
+            <span class="project-id">
+              <span class="project-logo" aria-hidden="true"><img src="assets/payguard-logo.svg" alt="" width="30" height="30" loading="lazy"></span>
+              <span class="project-name">PayGuard</span>
+            </span>
             <span class="status">Pre-launch</span>
           </div>
           <p class="project-tag">Escrow protection for peer-to-peer commerce in Nigeria</p>
@@ -286,7 +296,10 @@
 
         <article class="project reveal" style="--c: var(--gold)">
           <div class="project-top">
-            <span class="project-name">Aurum Forge</span>
+            <span class="project-id">
+              <span class="project-logo" aria-hidden="true"><img src="assets/aurum-forge-logo.svg" alt="" width="30" height="30" loading="lazy"></span>
+              <span class="project-name">Aurum Forge</span>
+            </span>
             <span class="status">MVP</span>
           </div>
           <p class="project-tag">An AI apprenticeship platform for engineers</p>
@@ -305,7 +318,10 @@
 
         <article class="project reveal" style="--c: var(--sky)">
           <div class="project-top">
-            <span class="project-name">Credlease</span>
+            <span class="project-id">
+              <span class="project-logo" aria-hidden="true"><img src="assets/credlease-logo.svg" alt="" width="30" height="30" loading="lazy"></span>
+              <span class="project-name">Credlease</span>
+            </span>
             <span class="status">Foundation complete</span>
           </div>
           <p class="project-tag">A capabilities broker for AI agents</p>
@@ -324,7 +340,10 @@
 
         <article class="project reveal" style="--c: var(--green)">
           <div class="project-top">
-            <span class="project-name">Farm Basics</span>
+            <span class="project-id">
+              <span class="project-logo" aria-hidden="true"><img src="assets/farm-basics-logo.svg" alt="" width="30" height="30" loading="lazy"></span>
+              <span class="project-name">Farm Basics</span>
+            </span>
             <span class="status">Blueprint</span>
           </div>
           <p class="project-tag">A product blueprint for Nigerian smallholder farmers</p>
